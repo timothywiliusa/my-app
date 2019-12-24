@@ -13,7 +13,7 @@ const App = () => {
     //example of useState, heading increments on click (5) represents the starting number
     const [counter,setCounter] = useState(5);
 
-    const [recipes,setRecipes] = useState([{},{},{}]);
+    const [recipes,setRecipes] = useState([{},{},{}]); //puts 3 objects into the array
 
     useEffect(() => {
       getRecipes();
