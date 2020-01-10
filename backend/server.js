@@ -22,6 +22,12 @@ connection.once('open', () => {
     console.log("MonggoDB database connected!");
 })
 
+const factionsRouter = require('./routes/factions');
+const plansRouter = require('./routes/plans');
+
+app.use('/factions',factionsRouter);
+app.use('/plans',plansRouter);
+
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
