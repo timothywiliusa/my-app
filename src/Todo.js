@@ -13,10 +13,9 @@ const Todo = ({id,userId,title,completed}) => {
 
     return(
         <div>
-            <h1>{id}</h1>
-            <p>{userId}</p>
-            <p>{title}</p>
+            <h1>{userId} - {id}</h1>
             <p>status: {mybool}</p>
+            <p>{title}</p>
         </div>
     );
 }
