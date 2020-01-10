@@ -39,7 +39,7 @@ const App = () => {
       // hits is an array of recipes in data
     }
     const counterDec = async () => {
-      setCounter(counter-1);
+      setCounter(counter+1);
     }
 
     const updateSearch = e => {
