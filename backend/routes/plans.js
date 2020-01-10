@@ -26,4 +26,31 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req,res) => {
+    Plan.findById(req.params.id)
+    .then(plan => res.json(plan))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/delete/:id').delete((req,res) => {
+    Plan.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Plan deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update/:id').post((req,res) => {
+    Plan.findById(req.params.id)
+    .then(plan => {
+        plan.factionname = req.body.factionname;
+        plan.description = req.body.description;
+        plan.duein = Number(req.body.duein);
+        plan.date = Date.parse(req.body.date);
+
+        plan.save()
+        .then(() => res.json('Plan updated.'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;
