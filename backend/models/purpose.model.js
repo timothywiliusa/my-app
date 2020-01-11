@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const factionSchema = new Schema({
-    factionname: {
+const purposeSchema = new Schema({
+    purpose: {
         type: String,
         required: true,
         unique: true,
@@ -14,6 +14,6 @@ const factionSchema = new Schema({
     timestamps: true,
 })
 
-const Faction = mongoose.model('Faction',factionSchema);
+const Purpose = mongoose.model('Purpose',purposeSchema);
 
-module.exports = Faction;
+module.exports = Purpose;
