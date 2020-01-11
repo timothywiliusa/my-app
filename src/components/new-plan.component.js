@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export default class CreateFaction extends Component{
+export default class CreatePlan extends Component{
     render(){
         return(
             <div>
-                <p>You are on the Create Faction Component</p>
+                <p>You are on the New Plan Component</p>
             </div>
         )
     }
