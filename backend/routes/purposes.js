@@ -1,19 +1,19 @@
 const router = require('express').Router();
-let Faction = require('../models/faction.model');
+let Purpose = require('../models/purpose.model');
 
 router.route('/').get((req,res) => {
-    Faction.find()
-    .then(factions => res.json(factions))
+    Purpose.find()
+    .then(purpose => res.json(purpose))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/add').post((req, res) => {
-    const factionname = req.body.factionname;
+    const purpose = req.body.purpose;
 
-    const newFaction = new Faction({factionname});
+    const newPurpose = new Purpose({purpose});
 
-    newFaction.save()
-    .then(() => res.json('Faction added.'))
+    newPurpose.save()
+    .then(() => res.json('Purpose added.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

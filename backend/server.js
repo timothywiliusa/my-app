@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-
 require('dotenv').config();
 
 const app = express();
@@ -22,10 +21,10 @@ connection.once('open', () => {
     console.log("MonggoDB database connected!");
 })
 
-const factionsRouter = require('./routes/factions');
+const purposesRouter = require('./routes/purposes');
 const plansRouter = require('./routes/plans');
 
-app.use('/factions',factionsRouter);
+app.use('/purposes',purposesRouter);
 app.use('/plans',plansRouter);
 
 app.listen(port, () => {

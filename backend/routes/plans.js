@@ -8,14 +8,14 @@ router.route('/').get((req,res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const factionname = req.body.factionname;
+    const purpose = req.body.purpose;
     const description = req.body.description;
     const duein = Number(req.body.duein);
     const date= Date.parse(req.body.date);
 
 
     const newPlan = new Plan({
-        factionname,
+        purpose,
         description,
         duein,
         date,
@@ -41,7 +41,7 @@ router.route('/delete/:id').delete((req,res) => {
 router.route('/update/:id').post((req,res) => {
     Plan.findById(req.params.id)
     .then(plan => {
-        plan.factionname = req.body.factionname;
+        plan.purpose = req.body.purpose;
         plan.description = req.body.description;
         plan.duein = Number(req.body.duein);
         plan.date = Date.parse(req.body.date);

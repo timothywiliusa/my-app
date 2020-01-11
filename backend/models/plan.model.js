@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const planSchema = new Schema({
-    factionname: {
+    purpose: {
         type: String,
         required: true
     },
