@@ -16,14 +16,16 @@ import './App.css';
 const App = () => {
 
   return (
-    <Router>
-      <Navbar />
-      <br/>
-      <Route path="/" exact component={PlanList} />
-      <Route path="/edit/:id" component={ChangeOfPlans} />
-      <Route path="/newplan" exact component={NewPlan} />
-      <Route path="/findapurpose" exact component={FindAPurpose} />
-    </Router>
+    <div className ="container" >
+      <Router>
+        <Navbar />
+        <br/>
+        <Route path="/" exact component={PlanList} />
+        <Route path="/edit/:id" component={ChangeOfPlans} />
+        <Route path="/newplan" exact component={NewPlan} />
+        <Route path="/findapurpose" exact component={FindAPurpose} />
+      </Router>
+    </div>
   );
 }
 
