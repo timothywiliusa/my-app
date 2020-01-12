@@ -69,8 +69,8 @@ export default class CreatePlan extends Component{
         console.log(plan);
 
         //window.location = '/';
-
         this.props.history.push('/');
+
     }
 
     render(){
