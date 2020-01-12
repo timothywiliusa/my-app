@@ -7,9 +7,13 @@ const planSchema = new Schema({
         type: String,
         required: true
     },
-    description: {
+    title: {
         type: String,
         required: true
+    },
+    description: {
+        type: String,
+        required: false
     },
     prepdays: {
         type: Number,

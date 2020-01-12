@@ -11,6 +11,7 @@ export default class CreatePlan extends Component{
 
         //not sure what this is for
         this.onChangePurpose = this.onChangePurpose.bind(this);
+        this.onChangeTitle = this.onChangeTitle.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangePrepDays = this.onChangePrepDays.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
@@ -18,6 +19,7 @@ export default class CreatePlan extends Component{
 
         this.state = {
             purpose: '',
+            title: '',
             description: '',
             prepdays: 0,
             date: new Date(),
@@ -37,6 +39,11 @@ export default class CreatePlan extends Component{
     onChangePurpose(e){
         this.setState({
             purpose: e.target.value
+        });
+    }
+    onChangeTitle(e){
+        this.setState({
+            title: e.target.value
         });
     }
     onChangeDescription(e){
@@ -60,6 +67,7 @@ export default class CreatePlan extends Component{
 
         const plan = {
             purpose: this.state.purpose,
+            title: this.state.title,
             description: this.state.description,
             prepdays: this.state.prepdays,
             date: this.state.date
@@ -94,6 +102,15 @@ export default class CreatePlan extends Component{
                             })
                         }
                     </select>
+                    </div>
+                    <div className="form-group"> 
+                    <label>Title: </label>
+                    <input  type="text"
+                        required
+                        className="form-control"
+                        value={this.state.title}
+                        onChange={this.onChangeTitle}
+                        />
                     </div>
                     <div className="form-group"> 
                     <label>Description: </label>

@@ -13,7 +13,9 @@ router.route('/add').post((req, res) => {
     const newPurpose = new Purpose({purpose});
 
     newPurpose.save()
-    .then(() => res.json('Purpose added.'))
+    .then(() => {
+        res.json('Purpose added.');
+    })
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

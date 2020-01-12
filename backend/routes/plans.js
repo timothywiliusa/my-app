@@ -9,6 +9,7 @@ router.route('/').get((req,res) => {
 
 router.route('/add').post((req, res) => {
     const purpose = req.body.purpose;
+    const title = req.body.title;
     const description = req.body.description;
     const prepdays = Number(req.body.prepdays);
     const date= Date.parse(req.body.date);
@@ -16,6 +17,7 @@ router.route('/add').post((req, res) => {
 
     const newPlan = new Plan({
         purpose,
+        title,
         description,
         prepdays,
         date,
@@ -42,6 +44,7 @@ router.route('/update/:id').post((req,res) => {
     Plan.findById(req.params.id)
     .then(plan => {
         plan.purpose = req.body.purpose;
+        plan.title = req.body.title;
         plan.description = req.body.description;
         plan.prepdays = Number(req.body.prepdays);
         plan.date = Date.parse(req.body.date);
