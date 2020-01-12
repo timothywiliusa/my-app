@@ -11,7 +11,7 @@ const planSchema = new Schema({
         type: String,
         required: true
     },
-    duein: {
+    prepdays: {
         type: Number,
         required: true
     },

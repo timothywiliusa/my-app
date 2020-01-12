@@ -12,14 +12,14 @@ export default class CreatePlan extends Component{
         //not sure what this is for
         this.onChangePurpose = this.onChangePurpose.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
-        this.onChangeDueIn = this.onChangeDueIn.bind(this);
+        this.onChangePrepDays = this.onChangePrepDays.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             purpose: '',
             description: '',
-            duein: 0,
+            prepdays: 0,
             date: new Date(),
             purposelist:[]
         }
@@ -44,9 +44,9 @@ export default class CreatePlan extends Component{
             description: e.target.value
         });
     }
-    onChangeDueIn(e){
+    onChangePrepDays(e){
         this.setState({
-            duein: e.target.value
+            prepdays: e.target.value
         });
     }
     onChangeDate(date){
@@ -61,7 +61,7 @@ export default class CreatePlan extends Component{
         const plan = {
             purpose: this.state.purpose,
             description: this.state.description,
-            duein: this.state.duein,
+            prepdays: this.state.prepdays,
             date: this.state.date
         }
 
@@ -105,12 +105,12 @@ export default class CreatePlan extends Component{
                         />
                     </div>
                     <div className="form-group">
-                    <label>Due in: </label>
+                    <label>Prep days: </label>
                     <input 
                         type="text" 
                         className="form-control"
-                        value={this.state.duein}
-                        onChange={this.onChangeDueIn}
+                        value={this.state.prepdays}
+                        onChange={this.onChangePrepDays}
                         />
                     </div>
                     <div className="form-group">

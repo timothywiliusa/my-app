@@ -10,14 +10,14 @@ router.route('/').get((req,res) => {
 router.route('/add').post((req, res) => {
     const purpose = req.body.purpose;
     const description = req.body.description;
-    const duein = Number(req.body.duein);
+    const prepdays = Number(req.body.prepdays);
     const date= Date.parse(req.body.date);
 
 
     const newPlan = new Plan({
         purpose,
         description,
-        duein,
+        prepdays,
         date,
     });
 
@@ -43,7 +43,7 @@ router.route('/update/:id').post((req,res) => {
     .then(plan => {
         plan.purpose = req.body.purpose;
         plan.description = req.body.description;
-        plan.duein = Number(req.body.duein);
+        plan.prepdays = Number(req.body.prepdays);
         plan.date = Date.parse(req.body.date);
 
         plan.save()
