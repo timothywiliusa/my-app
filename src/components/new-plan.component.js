@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 
 import DatePicker from 'react-datepicker';
@@ -29,11 +30,22 @@ export default class CreatePlan extends Component{
 
     componentDidMount(){
         //console.log("mounted");
+
+        axios.get('http://localhost:5000/purposes/')
+            .then(res => {
+                if (res.data.length>0){
+                    console.log(res.data)
+                    this.setState({
+                        purposelist: res.data.map(pur => pur.purpose),
+                        purpose: res.data[0].purpose
+                    })
+
+                }
+                
+            });
+
         console.log(this.props);
-        this.setState({
-            purposelist: ['test purpose'],
-            purpose: 'test purpose'
-        })
+     
     }
 
     onChangePurpose(e){
@@ -73,8 +85,11 @@ export default class CreatePlan extends Component{
             date: this.state.date
         }
 
-        console.log("submitted");
+        //console.log("submitted");
         console.log(plan);
+
+        axios.post('http://localhost:5000/plans/add',plan)
+            .then(res => console.log(res.data));
 
         //window.location = '/';
         this.props.history.push('/');
